@@ -1,0 +1,31 @@
+<h1>Create A Hero's Story</h1>
+
+<form>
+  Name:<input type='text' ng-model='DashboardVM.heroName'>
+  </br>
+  Gender: <input type='radio' value='male' ng-model='DashboardVM.heroGender'>
+  <input type='radio' value='female' ng-model='DashboardVM.heroGender'>
+  </br>
+  City:<input type='text' ng-model='DashboardVM.heroCity'>
+  </br>
+  Fights a:<input type='text' ng-model='DashboardVM.heroEnemy'>
+  </br>
+  Outcome:<input type='radio' value='wins' ng-model='DashboardVM.heroOutcome'>
+  <input type='radio' value='loses' ng-model='DashboardVM.heroOutcome'>
+</from>
+
+<hr>
+
+<span ng-if="DashboardVM.heroName !== ''">
+  There once was a hero named {{DashboardVM.heroName}}!
+</span>
+<span ng-if="DashboardVM.heroName !== '' && DashboardVM.heroCity !== '' && DashboardVM.heroGender !==''">
+  {{DashboardVM.heroGenderWord}} lived in the slums outside the city {{DashboardVM.heroCity}}.
+</span>
+<span ng-if="DashboardVM.heroName !== '' && DashboardVM.heroCity !== '' && DashboardVM.heroEnemy !=='' && DashboardVM.heroGender !==''">
+  One day, {{DashboardVM.heroName}} fights a {{DashboardVM.heroEnemy}}.
+</span>
+<span ng-if="DashboardVM.heroName !== '' && DashboardVM.heroCity !== '' && DashboardVM.heroEnemy !=='' && DashboardVM.heroGender !=='' && DashboardVM.heroOutcome !==''">
+  <span ng-if="DashboardVM.heroOutcome === 'wins'">{{DashboardVM.heroGenderWord}} won and the city was saved</span>
+  <span ng-if="DashboardVM.heroOutcome === 'loses'">{{DashboardVM.heroGenderWord}} lost and {{DashboardVM.heroEnemy}} destroyed the city and ate everyone.</span>
+</span>
